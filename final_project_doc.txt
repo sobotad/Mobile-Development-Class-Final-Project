@@ -1,0 +1,87 @@
+David Sobota
+CS 496
+08/10/2106
+Final Project Documentation
+
+
+DEMONSTRATION VIDEO URL: https://youtu.be/Ys4W9N6xg-k
+
+
+
+
+For this assignment, I put together bits and pieces from throughout the course, and integrated it all together.
+The assignments logs a user in, and displays their information. From there, the user can add a happiness index score, view an existing score,
+delete an existing score, or delete a user.
+
+Whenever a score is added, that score is saved to a text file on the device itself, named with the username and date. That file is then uploaded
+to DropBox using API calls, and stores the file in the cloud.
+
+URIS used:
+
+https://apiassignment.appspot.com/user
+https://apiassignment.appspot.com/score
+https://apiassignment.appspot.com/user/.../score/...
+
+How the calls were made:
+
+POST:
+
+Whenever a POST request was made, parameters are set in the url, and the response is made (I used the Volley library in Android to convert into a string url and make the request)
+Username and password were passed into the database to use as a login method (will be discussed later in this document)
+
+For user:
+https://apiassignment.appspot.com/user?username=[value]&password=[value]&name=[value]&location=[value]&job=[value]
+
+For score:
+https://apiassignment.appspot.com/score?username=[value]&password=[value]&happyIndex=[value]&date=[value]
+
+
+
+GET:
+
+By passing in username and password, a user can be filtered in a query search and everything will be displayed/saved for future use
+https://apiassignment.appspot.com/user?username=[value]&password=[value]
+
+Users can also be requested directly through the use of a key
+https://apiassignment.appspot.com/user/[ID]
+
+Same format goes for GET requests for scores in the project:
+
+https://apiassignment.appspot.com/score?username=[value]&password=[value]
+
+https://apiassignment.appspot.com/score/[ID]
+
+
+PUT:
+
+put requests are handled through keys. Keys were obtained in the app through the get requests, and stored. Then, after a score is created, after a delay, the score is 
+then associated with the user (one to many relationship), with the stored keys.
+
+https://apiassignment.appspot.com/user/[USERID]/score/[SCOREID]
+
+
+
+DELETE:
+
+By passing in the key, either a score or user can be deleted. If a score entity is deleted,
+the user entity will be updated, and if a score in the array matches, will remove that score from the user as well
+
+https://apiassignment.appspot.com/user/[ID]
+
+https://apiassignment.appspot.com/score/[ID]
+
+
+LOG IN/ACCOUNT SYSTEM
+
+For my login methods, I decided to try my hand and come up with ideas myself, instead of using an already prebuilt system like OAuth.
+Since the backend and web api was already up and ready to go, I decided to code in the login information to the database itself.
+I know this method is definitely less secure, but I took this assignment on as a challenge, to see if I could tinker and work with what I already have.
+
+In order to implement this, I included username and password in all POST and some of the GET requests. So, not only does a user in the database have a name, job, etc.
+but the username and password will be stored in the database as fields as well. If someone tries to make a get request with a username that doesn't exist, then an error will throw,
+becuase the code will attempt to work with attributes of a NoneType, so it doesn't work. From there, whenever a GET request is made (i.e. to login and display the info), the code
+creates a query to the database, and filters based on username and password. So only when a hit is found for username and password, will information be passed onto the get request.
+
+So, this acts as a crude login information, and the username and password is saved on the device for the session, so calls can be made to scores, etc. using those fields to filter and query
+the information, leaving unique info displayed for each user.
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.myapplication.Happiness">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:layout_marginBottom="20sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/TrialNumber"
+        android:text="Now that you're in the database, let's get a happiness score, save it to the text file, then upload it to Dropbox!" />
+
+    <TextView
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="48sp"
+        android:textSize="28sp"
+        android:textColor="@android:color/black"
+        android:text="On a scale of 0-10, how happy were you today?"/>
+
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:rating="0"
+        android:stepSize="1"
+        android:numStars="10"
+        />
+
+    <Button
+        android:id="@+id/Submit"
+        android:layout_width="132sp"
+        android:layout_height="55sp"
+        android:layout_marginBottom="16sp"
+        android:layout_marginLeft="160sp"
+        android:layout_marginTop="48sp"
+        android:text="Submit"
+        android:onClick="submit"
+        />
+
+</LinearLayout>

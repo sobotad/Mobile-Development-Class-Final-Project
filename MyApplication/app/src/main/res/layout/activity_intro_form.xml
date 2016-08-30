@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.myapplication.IntroForm"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:layout_marginBottom="0sp"
+        android:textColor="@android:color/black"
+        android:text="Enter your info below:" />
+
+
+    <EditText
+        android:layout_width="400sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32sp"
+        android:hint="Enter what username you want"
+        android:id="@+id/username"
+        />
+
+    <EditText
+        android:layout_width="400sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32sp"
+        android:hint="Enter what password you want"
+        android:id="@+id/password"
+        />
+
+    <EditText
+        android:layout_width="400sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32sp"
+        android:hint="What's your name?"
+        android:inputType="text"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:id="@+id/enteredName"
+        />
+
+    <EditText
+        android:layout_width="400sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32sp"
+        android:hint="Where do you live?"
+        android:inputType="text"
+        android:id="@+id/enteredLocation"
+        />
+
+
+    <EditText
+        android:layout_width="400sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="32sp"
+        android:hint="What do you do for a job?"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:inputType="text"
+        android:id="@+id/enteredWork"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Submit info"
+        android:textSize="28dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="100sp"
+        android:layout_marginTop="24sp"
+        android:background="#ff9966"
+        android:onClick="submit"
+        />
+
+
+</LinearLayout>
